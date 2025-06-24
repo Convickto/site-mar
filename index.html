@@ -6,53 +6,61 @@
   <title>Orçamento de Móveis</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
   <style>
+    /* Basic styles for the page body and container */
     body {
       font-family: 'Roboto', sans-serif;
-      background-color: #f8f4f0;
+      background-color: #f8f4f0; /* Light cream background */
       margin: 0;
       padding: 0;
     }
 
     .container {
       max-width: 600px;
-      background-color: #fff;
+      background-color: #fff; /* White background for the form */
       margin: 40px auto;
       padding: 30px;
       border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1); /* Soft shadow for the container */
     }
 
     h2 {
       text-align: center;
-      color: #4e342e;
+      color: #4e342e; /* Dark brown title */
       margin-bottom: 30px;
     }
 
     label {
       display: block;
       margin: 15px 0 5px;
-      color: #3e2723;
+      color: #3e2723; /* Label text color */
+      font-weight: bold; /* Make the label more visible */
     }
 
+    /* Styles for input fields, select, and textarea */
     input[type="text"],
+    input[type="number"], /* Added for numeric fields */
     input[type="date"],
     input[type="file"],
-    select {
+    select,
+    textarea {
       width: 100%;
       padding: 10px;
-      border: 1px solid #c7b299;
+      border: 1px solid #c7b299; /* Border in a light beige/brown tone */
       border-radius: 6px;
-      box-sizing: border-box;
+      box-sizing: border-box; /* Ensures padding does not increase total width */
+      margin-bottom: 10px; /* Spacing between fields */
     }
 
     input[type="checkbox"],
     input[type="radio"] {
-      margin-right: 8px;
+      margin-right: 8px; /* Spacing for checkboxes and radios */
+      vertical-align: middle; /* Align checkboxes/radios with text */
     }
 
+    /* Style for the submit button */
     button {
-      background-color: #6d4c41;
-      color: #fff;
+      background-color: #6d4c41; /* Button background color (brown) */
+      color: #fff; /* Button text color (white) */
       padding: 12px;
       width: 100%;
       margin-top: 20px;
@@ -60,88 +68,245 @@
       border-radius: 8px;
       cursor: pointer;
       font-size: 16px;
-      transition: background 0.3s ease;
+      transition: background 0.3s ease; /* Smooth transition on hover */
     }
 
     button:hover {
-      background-color: #5d4037;
+      background-color: #5d4037; /* Button background color on hover */
     }
 
     .grupo {
-      margin-bottom: 20px;
+      margin-bottom: 20px; /* Spacing between field groups */
+      padding-bottom: 10px; /* Adds a bit of padding to the bottom of the group */
+      border-bottom: 1px dashed #e0e0e0; /* Dashed line to separate groups */
+    }
+
+    .grupo:last-child {
+      border-bottom: none; /* Removes the border from the last group */
+    }
+
+    /* Styles for the scrollable checkbox container */
+    .checkbox-scroll-container {
+        max-height: 200px; /* Maximum height for scrolling */
+        overflow-y: auto; /* Enable vertical scrolling */
+        border: 1px solid #c7b299;
+        border-radius: 6px;
+        padding: 10px;
+        background-color: #fdfcfb; /* Slightly off-white background for the container */
+    }
+
+    .checkbox-scroll-container label {
+        display: block; /* Make each checkbox a block element for better spacing */
+        margin: 5px 0; /* Spacing between individual checkboxes */
+        font-weight: normal; /* Override bold from general label style */
+        color: #3e2723;
+        cursor: pointer;
+    }
+
+    /* Style for the color preview */
+    .color-preview {
+        display: inline-block;
+        width: 25px; /* Width of the preview box */
+        height: 25px; /* Height of the preview box */
+        border: 1px solid #ccc;
+        vertical-align: middle; /* Align vertically with text */
+        margin-left: 10px;
+        border-radius: 4px; /* Slightly rounded corners */
     }
   </style>
 </head>
 
 <body>
   <div class="container">
-    <h2>Peça seu Orçamento</h2>
+    <h2>Peça seu Orçamento de Móveis</h2>
     <form action="https://formsubmit.co/13b49a1bfb4a9a8533fd461421f51700" method="POST" enctype="multipart/form-data">
 
       <div class="grupo">
-        <label>Tipo de móvel:</label>
-        <input type="checkbox" name="Móvel[]" value="Armário de Cozinha">Armário de Cozinha<br/>
-        <input type="checkbox" name="Móvel[]" value="Estante">Estante<br/>
-        <input type="checkbox" name="Móvel[]" value="Guarda-Roupa">Guarda-Roupa<br/>
-        <input type="checkbox" name="Móvel[]" value="Painel de TV">Painel de TV<br/>
-        <input type="checkbox" name="Móvel[]" value="Outro">Outro
+        <label>Tipo de móvel (selecione um ou mais):</label>
+        <div class="checkbox-scroll-container">
+          <label><input type="checkbox" name="Tipo de Móvel[]" value="Armário de Cozinha">Armário de Cozinha</label>
+          <label><input type="checkbox" name="Tipo de Móvel[]" value="Armário de Banheiro">Armário de Banheiro</label>
+          <label><input type="checkbox" name="Tipo de Móvel[]" value="Guarda-Roupa">Guarda-Roupa</label>
+          <label><input type="checkbox" name="Tipo de Móvel[]" value="Estante/Nicho">Estante/Nicho</label>
+          <label><input type="checkbox" name="Tipo de Móvel[]" value="Painel de TV">Painel de TV</label>
+          <label><input type="checkbox" name="Tipo de Móvel[]" value="Mesa de Jantar">Mesa de Jantar</label>
+          <label><input type="checkbox" name="Tipo de Móvel[]" value="Mesa de Centro">Mesa de Centro</label>
+          <label><input type="checkbox" name="Tipo de Móvel[]" value="Escrivaninha/Home Office">Escrivaninha/Home Office</label>
+          <label><input type="checkbox" name="Tipo de Móvel[]" value="Cama/Cabeceira">Cama/Cabeceira</label>
+          <label><input type="checkbox" name="Tipo de Móvel[]" value="Criado-Mudo">Criado-Mudo</label>
+          <label><input type="checkbox" name="Tipo de Móvel[]" value="Rack">Rack</label>
+          <label><input type="checkbox" name="Tipo de Móvel[]" value="Bancada/Ilha">Bancada/Ilha</label>
+          <label><input type="checkbox" name="Tipo de Móvel[]" value="Balcão">Balcão</label>
+          <label><input type="checkbox" name="Tipo de Móvel[]" value="Prateleiras">Prateleiras</label>
+          <label><input type="checkbox" name="Tipo de Móvel[]" value="Outro">Outro (especifique nas observações adicionais)</label>
+        </div>
       </div>
 
       <div class="grupo">
-        <label>Medidas aproximadas (em metros):</label>
-        Largura: <input type="text" name="Largura">
-        Altura: <input type="text" name="Altura">
-        Profundidade: <input type="text" name="Profundidade">
+        <label>Medidas aproximadas (em centímetros):</label>
+        Largura (cm): <input type="number" name="Largura" placeholder="Ex: 120 (somente números)" min="1" step="1" required>
+        Altura (cm): <input type="number" name="Altura" placeholder="Ex: 80 (somente números)" min="1" step="1" required>
+        Profundidade (cm): <input type="number" name="Profundidade" placeholder="Ex: 45 (somente números)" min="1" step="1" required>
       </div>
 
       <div class="grupo">
-        <label>Estilo de porta:</label>
-        <input type="radio" name="Porta" value="De correr">De correr<br/>
-        <input type="radio" name="Porta" value="Com dobradiça">Com dobradiça<br/>
-        <input type="radio" name="Porta" value="Sem porta">Sem porta
+        <label>Estilo de porta/abertura (se aplicável):</label>
+        <label><input type="radio" name="Estilo da Porta" value="De correr">De correr</label>
+        <label><input type="radio" name="Estilo da Porta" value="Com dobradiça">Com dobradiça</label>
+        <label><input type="radio" name="Estilo da Porta" value="Basculante">Basculante</label>
+        <label><input type="radio" name="Estilo da Porta" value="Gavetas">Gavetas</label>
+        <label><input type="radio" name="Estilo da Porta" value="Sem porta/aberto">Sem porta/aberto</label>
+        <label><input type="radio" name="Estilo da Porta" value="Outro/Não se aplica">Outro/Não se aplica</label>
       </div>
 
       <div class="grupo">
-        <label>Cor desejada:</label>
-        <select name="Cor">
+        <label for="corDesejada">Cor desejada:</label>
+        <select id="corDesejada" name="Cor">
           <option value="Branco">Branco</option>
-          <option value="Amadeirado">Amadeirado</option>
+          <option value="Off White">Off White</option>
           <option value="Preto">Preto</option>
-          <option value="Outra">Outra</option>
+          <option value="Cinza Claro">Cinza Claro</option>
+          <option value="Cinza Escuro">Cinza Escuro</option>
+          <option value="Amadeirado Claro (Carvalho)">Amadeirado Claro (Carvalho)</option>
+          <option value="Amadeirado Médio (Freijó)">Amadeirado Médio (Freijó)</option>
+          <option value="Amadeirado Escuro (Nogueira)">Amadeirado Escuro (Nogueira)</option>
+          <option value="Outra">Outra (especificar abaixo)</option>
+        </select>
+        <input type="text" id="outraCor" name="Outra Cor Especificada" placeholder="Ex: #FF5733, rgb(255, 87, 51), Azul Royal" style="display:none; margin-top: 10px;">
+        <span id="colorPreview" class="color-preview" style="display:none;"></span>
+      </div>
+
+      <div class="grupo">
+        <label for="tipoMaterial">Tipo de material preferencial:</label>
+        <select id="tipoMaterial" name="Material">
+          <option value="MDF">MDF (Fibra de Madeira de Média Densidade)</option>
+          <option value="MDP">MDP (Painel de Partícula de Média Densidade)</option>
+          <option value="Compensado Naval">Compensado Naval</option>
+          <option value="Madeira Maciça (Pinus)">Madeira Maciça (Pinus)</option>
+          <option value="Madeira Maciça (Eucalipto)">Madeira Maciça (Eucalipto)</option>
+          <option value="Madeira Maciça (Cerejeira)">Madeira Maciça (Cerejeira)</option>
+          <option value="Metal">Metal (para estrutura)</option>
+          <option value="Vidro">Vidro (para portas/prateleiras)</option>
+          <option value="Não tenho preferência">Não tenho preferência</option>
+          <option value="Outro">Outro (especificar nas observações)</option>
+        </select>
+      </div>
+
+      <div class="grupo">
+        <label for="tipoAcabamento">Tipo de acabamento:</label>
+        <select id="tipoAcabamento" name="Acabamento">
+          <option value="Fosco">Fosco</option>
+          <option value="Brilhante">Brilhante</option>
+          <option value="Semi-Brilho">Semi-Brilho</option>
+          <option value="Texturizado">Texturizado</option>
+          <option value="Laqueado">Laqueado (Laca)</option>
+          <option value="Melamina">Melamina</option>
+          <option value="Natural (Verniz/Cera)">Natural (Verniz/Cera)</option>
+          <option value="Outro">Outro (especificar nas observações)</option>
         </select>
       </div>
 
       <div class="grupo">
         <label>Foto de referência (opcional):</label>
         <input type="file" name="Foto" accept="image/*" />
+        <small style="color: #666;">Envie uma imagem para nos ajudar a entender melhor o seu projeto.</small>
       </div>
 
       <div class="grupo">
-        <label>Endereço (bairro/cidade):</label>
-        <input type="text" name="Endereço" required/>
+        <label>Informações de Localização:</label>
+        <input type="text" name="CEP" id="cep" placeholder="CEP (somente números)" pattern="[0-9]{8}" maxlength="8" required/>
+        <input type="text" name="Rua" id="rua" placeholder="Rua/Avenida" required/>
+        <input type="text" name="Numero" placeholder="Número" required/>
+        <input type="text" name="Complemento" placeholder="Complemento (apto, casa, bloco, etc.)"/>
+        <input type="text" name="Bairro" id="bairro" placeholder="Bairro" required/>
+        <input type="text" name="Cidade" id="cidade" placeholder="Cidade" required/>
+        <input type="text" name="Estado" id="estado" placeholder="Estado (Ex: SP)" maxlength="2" required/>
+        <small style="color: #666;">Preencha o CEP e os demais campos serão preenchidos automaticamente, se possível.</small>
       </div>
 
       <div class="grupo">
-        <label>Data desejada para entrega:</label>
-        <input type="date" name="Data" />
+        <label>Data desejada para entrega/instalação (aproximada):</label>
+        <input type="date" name="Data Desejada" />
+        <small style="color: #666;">Isso nos ajuda a planejar a sua entrega.</small>
       </div>
 
       <div class="grupo">
-        <label>Nome completo:</label>
-        <input type="text" name="Nome" required/>
+        <label for="orcamentoFaixa">Faixa de orçamento desejada (opcional):</label>
+        <select id="orcamentoFaixa" name="Faixa de Orçamento">
+          <option value="">Não tenho preferência</option>
+          <option value="Até R$ 1.000">Até R$ 1.000</option>
+          <option value="R$ 1.000 - R$ 3.000">R$ 1.000 - R$ 3.000</option>
+          <option value="R$ 3.000 - R$ 7.000">R$ 3.000 - R$ 7.000</option>
+          <option value="R$ 7.000 - R$ 15.000">R$ 7.000 - R$ 15.000</option>
+          <option value="Acima de R$ 15.000">Acima de R$ 15.000</option>
+        </select>
+        <small style="color: #666;">Saber sua faixa de orçamento nos ajuda a oferecer as melhores soluções.</small>
       </div>
 
       <div class="grupo">
-        <label>WhatsApp para contato:</label>
-        <input type="text" name="WhatsApp" required/>
+        <label for="observacoes">Observações adicionais / Detalhes do projeto:</label>
+        <textarea id="observacoes" name="Observacoes" rows="6" placeholder="Descreva aqui qualquer detalhe adicional, como funcionalidades específicas (ex: iluminação LED, amortecedores nas portas), divisão interna desejada, tipo de puxador, se o móvel é embutido, etc."></textarea>
+        <small style="color: #666;">Quanto mais detalhes, mais preciso será seu orçamento!</small>
       </div>
 
-      <!-- Proteção do FormSubmit -->
+      <div class="grupo">
+        <label>Seus dados para contato:</label>
+        <input type="text" name="Nome Completo" placeholder="Nome Completo" required/>
+        <input type="text" name="WhatsApp" placeholder="WhatsApp (com DDD, ex: 11987654321)" pattern="[0-9]{10,11}" required/>
+        <input type="email" name="Email" placeholder="Seu melhor e-mail (opcional)"/>
+      </div>
+
+      <!-- FormSubmit protection -->
       <input type="hidden" name="_next" value="https://tusite.com/obrigado.html">
       <input type="hidden" name="_captcha" value="false">
 
-      <button type="submit">ENVIAR ORÇAMENTO</button>
+      <button type="submit">ENVIAR SOLICITAÇÃO DE ORÇAMENTO</button>
     </form>
   </div>
+
+  <script>
+    // Logic to show/hide the "Other Color" field and color preview
+    document.getElementById('corDesejada').addEventListener('change', function() {
+      const outraCorInput = document.getElementById('outraCor');
+      const colorPreview = document.getElementById('colorPreview');
+      if (this.value === 'Outra') {
+        outraCorInput.style.display = 'block';
+        colorPreview.style.display = 'inline-block';
+        outraCorInput.focus();
+      } else {
+        outraCorInput.style.display = 'none';
+        colorPreview.style.display = 'none';
+        outraCorInput.value = ''; // Clear value if not "Other"
+        colorPreview.style.backgroundColor = ''; // Clear preview color
+      }
+    });
+
+    // Update the color preview in real-time as the user types
+    document.getElementById('outraCor').addEventListener('input', function() {
+        const colorPreview = document.getElementById('colorPreview');
+        colorPreview.style.backgroundColor = this.value; // Attempt to apply the typed color
+    });
+
+    // Logic for automatic address lookup via CEP API (e.g., ViaCEP)
+    document.getElementById('cep').addEventListener('blur', function() {
+        const cep = this.value.replace(/\D/g, ''); // Remove non-numeric characters
+        if (cep.length === 8) {
+            fetch(`https://viacep.com.br/ws/${cep}/json/`)
+                .then(response => response.json())
+                .then(data => {
+                    if (!data.erro) {
+                        document.getElementById('rua').value = data.logradouro;
+                        document.getElementById('bairro').value = data.bairro;
+                        document.getElementById('cidade').value = data.localidade;
+                        document.getElementById('estado').value = data.uf;
+                    } else {
+                        console.log("CEP not found.");
+                        // Optional: Clear fields or show message to the user
+                    }
+                })
+                .catch(error => console.error("Error fetching CEP:", error));
+        }
+    });
+  </script>
 </body>
 </html>
