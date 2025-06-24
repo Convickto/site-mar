@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Orçamento de Móveis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f8f4f0;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      background-color: #fff;
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #4e342e;
+      margin-bottom: 30px;
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 5px;
+      color: #3e2723;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    input[type="file"],
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #c7b299;
+      border-radius: 6px;
+      box-sizing: border-box;
+    }
+
+    input[type="checkbox"],
+    input[type="radio"] {
+      margin-right: 8px;
+    }
+
+    button {
+      background-color: #6d4c41;
+      color: #fff;
+      padding: 12px;
+      width: 100%;
+      margin-top: 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #5d4037;
+    }
+
+    .grupo {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Peça seu Orçamento</h2>
+    <form action="https://formsubmit.co/13b49a1bfb4a9a8533fd461421f51700" method="POST" enctype="multipart/form-data">
+
+      <div class="grupo">
+        <label>Tipo de móvel:</label>
+        <input type="checkbox" name="Móvel[]" value="Armário de Cozinha">Armário de Cozinha<br/>
+        <input type="checkbox" name="Móvel[]" value="Estante">Estante<br/>
+        <input type="checkbox" name="Móvel[]" value="Guarda-Roupa">Guarda-Roupa<br/>
+        <input type="checkbox" name="Móvel[]" value="Painel de TV">Painel de TV<br/>
+        <input type="checkbox" name="Móvel[]" value="Outro">Outro
+      </div>
+
+      <div class="grupo">
+        <label>Medidas aproximadas (em metros):</label>
+        Largura: <input type="text" name="Largura">
+        Altura: <input type="text" name="Altura">
+        Profundidade: <input type="text" name="Profundidade">
+      </div>
+
+      <div class="grupo">
+        <label>Estilo de porta:</label>
+        <input type="radio" name="Porta" value="De correr">De correr<br/>
+        <input type="radio" name="Porta" value="Com dobradiça">Com dobradiça<br/>
+        <input type="radio" name="Porta" value="Sem porta">Sem porta
+      </div>
+
+      <div class="grupo">
+        <label>Cor desejada:</label>
+        <select name="Cor">
+          <option value="Branco">Branco</option>
+          <option value="Amadeirado">Amadeirado</option>
+          <option value="Preto">Preto</option>
+          <option value="Outra">Outra</option>
+        </select>
+      </div>
+
+      <div class="grupo">
+        <label>Foto de referência (opcional):</label>
+        <input type="file" name="Foto" accept="image/*" />
+      </div>
+
+      <div class="grupo">
+        <label>Endereço (bairro/cidade):</label>
+        <input type="text" name="Endereço" required/>
+      </div>
+
+      <div class="grupo">
+        <label>Data desejada para entrega:</label>
+        <input type="date" name="Data" />
+      </div>
+
+      <div class="grupo">
+        <label>Nome completo:</label>
+        <input type="text" name="Nome" required/>
+      </div>
+
+      <div class="grupo">
+        <label>WhatsApp para contato:</label>
+        <input type="text" name="WhatsApp" required/>
+      </div>
+
+      <!-- Proteção do FormSubmit -->
+      <input type="hidden" name="_next" value="https://tusite.com/obrigado.html">
+      <input type="hidden" name="_captcha" value="false">
+
+      <button type="submit">ENVIAR ORÇAMENTO</button>
+    </form>
+  </div>
+</body>
+</html>
